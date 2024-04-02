@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>SpringEL</h1>
+</body>
+    <ul>
+        <li><span th:text="${user.username}"></span></li>
+        <li><span th:text="${user['username']}"></span></li>
+        <li><span th:text="${user.getUsername()}"></span></li>
+    </ul>
+
+    <ul>
+        <li><span th:th:text="${users[0].username}"></span></li>
+        <li><span th:th:text="${users[0]['username']}"></span></li>
+        <li><span th:th:text="${users[0].getUsername()}"></span></li>
+        <li><span th:th:text="${users[1].username}"></span></li>
+        <li><span th:th:text="${users[1]['username']}"></span></li>
+        <li><span th:th:text="${users[1].getUsername()}"></span></li>
+    </ul>
+
+    <ul>
+        <li th:text="${userMap['userA'].username}"></li>
+        <li th:text="${userMap['userA']['username']}"></li>
+        <li th:text="${userMap['userA'].getUsername()}"></li>
+        <li th:text="${userMap['userB'].username}"></li>
+        <li th:text="${userMap['userB']['username']}"></li>
+        <li th:text="${userMap['userB'].getUsername()}"></li>
+    </ul>
+
+    <div th:with="first=${users[0]}">
+        <span th:text="${first.username}"></span>
+    </div>
+</html>
