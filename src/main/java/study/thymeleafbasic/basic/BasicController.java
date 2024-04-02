@@ -71,6 +71,16 @@ public class BasicController {
         return "basic/attribute";
     }
 
+    @GetMapping("/each")
+    public String each(Model model) {
+        List<User> list = new ArrayList<>();
+        list.add(new User("userA", 10));
+        list.add(new User("userB", 20));
+        list.add(new User("userC", 30));
+        model.addAttribute("users", list);
+        return "basic/each";
+    }
+
     @Component("helloBean")
     static class HelloBean {
         public String hello(String data) {
